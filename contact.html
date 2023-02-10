@@ -11,7 +11,7 @@
 <body>
     <header class="contact-header">
         <section class="navbar-area">
-            <div class="container">
+            <div class="container">      
                 <nav class="site-navbar">
                     <div class="site-logo">Alpha Coder</div>
                     <ul>
@@ -28,8 +28,20 @@
                 </nav>
             </div>
         </section>
+        <form action="" method="get">
+            <legend><h2>Reach out to us, let us know what you think and we'll be thrilled to hit you with a response &#128540;</h2></legend>
+            <label for="name"><input type="text" name="name" id="name" placeholder="Gabriel" required /></label>
+            <label for="lastName"><input type="text" name="lastName" id="lastName" placeholder="Jones" required /></label>
+            <label for="email"><input type="email" name="email" id="email" placeholder="howard@cookie.com" required /></label>
+            <label for="password"><input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter password here" required /></label>
+            <label for="password"><input type="password" name="password" id="password" autocomplete="new-password" placeholder="Confirm password" required /></label>
+            <label for="text"><textarea name="" id="" cols="30" rows="10" placeholder="Share your thoughts..."></textarea></label>
+            <div class="form-buttons">
+                <button type="reset" class="reset">Reset</button>
+                <button type="submit" class="submit">Submit</button>
+            </div>
+        </form>    
     </header>
-    <section class="contact" id="contact"></section>
     <footer class="footer">Brought to you by <a href="#">&#10084;Tlale&#10084;</a></footer>
     <script src="./script.js"></script>
 </body>

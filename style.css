@@ -14,6 +14,7 @@ html {
     margin-left: 30px;
 }
 body {
+    background: #D7D7D7;
     color: rgb(172, 209, 205);
     font-family: "Nunito";
     height: 100vh;
@@ -23,15 +24,27 @@ header {
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-anthony-\)-794494.jpg) center/ cover no-repeat fixed;
 }
+/*headers for all the additional pages throughout the site*/
 .serv-header {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-jonathan-meyer-752484.jpg) center/ cover no-repeat fixed;
 }
 .contact-header{
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-pixabay-417344.jpg) center/ cover no-repeat fixed;
+    height: 100vw;
 }
 .project-header {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-suzy-hazelwood-1629236.jpg) center/ cover no-repeat fixed;
+}
 
+.projects {
+    animation-name: polygon-out-opposing-corners;
+    animation-duration: 2s;
+}
+#projects {
+    background: #d7d7d7;
+}
+#services {
+    background-image: linear-gradient(90deg,#ffbe0b 0,#ff0075 31.19%,#0076ff 68.63%,#3bdcff);
 }
 .navbar-area {
     background: rgba(0,0,0,.6);
@@ -68,7 +81,10 @@ nav ul li a {
     display: block;
     text-decoration: none;
 }
-nav ul li a.btn {
+nav ul li a.btn,
+.reset,
+.submit {
+    color:rgb(121, 157, 197);
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -77,7 +93,9 @@ nav ul li a.btn {
     border-radius: 20px;
     background-color:#562856;
 }
-nav ul li a.btn:hover {
+nav ul li a.btn:hover,
+.reset:hover,
+.submit:hover {
     background-color: #808080;
     border: 2px solid navy;
     color: navy;
@@ -149,6 +167,7 @@ nav a:hover {
     font-weight: 900;
     padding: 8px;
     margin-top: 20px;
+    
 }
 
 .button:hover {
@@ -157,16 +176,36 @@ nav a:hover {
     background-color:#562856;
     color:rgb(121, 157, 197);
     cursor: pointer; 
+    transition: ease-out .5s;
+}
+.pointer {
+    animation: slidein 3s;
+}
+.pointer2 {
+    animation: slideout 3s;
+}
+h2 {
+    color:rgb(68, 143, 209);
+    margin: 30px;
+    text-align: center;
 }
 .cards {
     display: flex;
 }
 .cards .card {
+    animation: slidein 3s;
+    border-image: linear-gradient(aquamarine, blueviolet) 30;
+    border-width: 4px;
+    border-style: solid;
+    box-shadow: 10px 10px 10px;
     background: #808080;
     cursor: pointer;
     margin: 10px;
     padding: 20px;
     width: 400px;
+}
+.cards .card:hover {
+    transform: scale(1.1);
 }
 .cards .card img {
     height: 150px;
@@ -178,6 +217,117 @@ nav a:hover {
     font-weight: 800;
     text-align: center;
 }
+
+/*contact page styling*/
+form > legend {
+    padding: 20px;
+}
+form {
+    background: rgba(0, 0, 0, 0.17);
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 3px 3px 3px 3px #808080;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    position: relative;
+    top: 50px;
+    animation-name: circle-in-hesitate;
+    animation-duration: 2s;
+}
+form input,
+textarea {
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,.6);
+    border-radius: 8px;
+    background-color: rgba(42, 139, 143, 0.17);
+    margin: 10px 0;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    width: 400px;
+}
+input:hover,
+textarea:hover {
+    border: 1px dashed rgb(172, 209, 205)
+}
+::placeholder {
+    color: rgb(121, 157, 197);
+}
+.form-buttons {
+    display: flex;
+}
+.reset,
+.submit {
+    margin: 5px;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      transform: rotate(0deg);
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      transform: rotate(360deg);
+      width: 100%;
+    }
+    
+  }
+@keyframes slideout {
+    from {
+        margin-left: 0%;
+        width:100%;
+    }
+
+    to {
+        margin-left: 100%;
+        width: 300%;
+    }
+}
+
+    @keyframes circle-in-hesitate {
+        0% {
+          clip-path: circle(0%);
+        }
+        40% {
+          clip-path: circle(40%);
+        }
+        100% {
+          clip-path: circle(125%);
+        }
+      }
+      
+      [transition-style="in:circle:hesitate"] {
+        animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-hesitate both;
+      }
+
+    @keyframes polygon-out-opposing-corners {
+        from {
+          clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+        }
+        to {
+          clip-path: polygon(0 0, 50% 50%, 100% 100%, 50% 50%);
+        }
+        from {
+            clip-path: polygon(0 0, 50% 50%, 100% 100%, 50% 50%);
+          }
+          to {
+            clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+          }
+      }
+      
+      [transition-style="out:polygon:opposing-corners"] {
+        animation: 1.5s cubic-bezier(.25, 1, .30, 1) polygon-out-opposing-corners both;
+      }
+      
+      [transition-style="in:polygon:opposing-corners"] {
+        animation: 1.5s cubic-bezier(.25, 1, .30, 1) polygon-in-opposing-corners both;
+      }
+
 @media screen and (max-width: 765px) {
     .site-logo {
         position: sticky;
@@ -238,11 +388,22 @@ nav a:hover {
         padding: 10px;
         width: min(95%, 700px)
     }
+    form > legend > h2 {
+        font-size: 16px;
+    }
   }
 
 @media screen and (max-width: 600px) {
     .cards .card {
         width: min(95%, 580px)
+    }
+    form {
+        max-width: 300px;
+        padding: 8px;
+    }
+    form input,
+    textarea {
+        max-width: 280px;
     }
 }
 @media screen and (min-width: 1440px) {
