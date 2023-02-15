@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 html {
-    overflow-x: scroll;
+    overflow-y: scroll;
     scroll-behavior: smooth;
 }
 
@@ -33,18 +33,18 @@ header {
     height: 100vw;
 }
 .project-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-suzy-hazelwood-1629236.jpg) center/ cover no-repeat fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/pexels-suzy-hazelwood-1629236.jpg) center/ cover no-repeat fixed; 
 }
 
 .projects {
     animation-name: polygon-out-opposing-corners;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
-#projects {
-    background: #d7d7d7;
-}
+
 #services {
     background-image: linear-gradient(90deg,#ffbe0b 0,#ff0075 31.19%,#0076ff 68.63%,#3bdcff);
+    animation-name: wipe-in-down;
+    animation-duration: 2s;
 }
 .navbar-area {
     background: rgba(0,0,0,.6);
@@ -103,6 +103,8 @@ nav ul li a.btn:hover,
 }
 nav ul li a:hover {
     background: rgba(255,255,255,.1);
+    font-weight: 800;
+    transition: ease-in .5s;
 }
   
 .nav-toggler {
@@ -166,8 +168,8 @@ nav a:hover {
     cursor: pointer;
     font-weight: 900;
     padding: 8px;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
+    text-decoration: none;
 }
 
 .button:hover {
@@ -176,13 +178,7 @@ nav a:hover {
     background-color:#562856;
     color:rgb(121, 157, 197);
     cursor: pointer; 
-    transition: ease-out .5s;
-}
-.pointer {
-    animation: slidein 3s;
-}
-.pointer2 {
-    animation: slideout 3s;
+    transition: ease-in-out .5s;
 }
 h2 {
     color:rgb(68, 143, 209);
@@ -194,6 +190,7 @@ h2 {
 }
 .cards .card {
     animation: slidein 3s;
+    animation-delay: 10s;
     border-image: linear-gradient(aquamarine, blueviolet) 30;
     border-width: 4px;
     border-style: solid;
@@ -210,6 +207,63 @@ h2 {
 .cards .card img {
     height: 150px;
     width: 150px;
+}
+.about {
+    margin: 50px;
+}
+.about .icon {
+    animation: wipe-in-up 3s ease-in-out;
+    animation-delay: 5s;
+    background: rgb(164, 191, 222);
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.17);
+    display: flex;
+    margin: 20px
+}
+.icon h3 {
+    color: #808080;
+    margin: 15px 0;
+    width: 400px;
+}
+.icon p {
+    color:rgb(139, 0, 139);
+    width: 400px
+}
+.about img {
+    border-radius: 50px;
+    width: 250px
+}
+.about figcaption {
+    color:#562856;
+}
+.blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.block {
+    position: relative;
+}
+.block img {
+    border-radius: 20px;
+    max-width: 500px;
+
+}
+.block:nth-child(1) {
+    animation: slideout 2s; 
+}
+.block:nth-child(2) {
+    animation: slideout 4s;
+}
+.block:nth-child(3) {
+    animation: slideout 6s;
+}
+.block:nth-child(4) {
+    animation: slideout 8s;
+}
+.block:nth-child(5) {
+    animation: slideout 10s;
+
 }
 .footer {
     background: aquamarine;
@@ -263,6 +317,39 @@ textarea:hover {
     margin: 5px;
 }
 
+@keyframes wipe-in-up {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  [transition-style="in:wipe:up"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-up both;
+  }
+  
+  [transition-style="in:circle:center"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+  }
+
+@keyframes square-in-hesitate {
+    0% {
+      clip-path: inset(100% 100% 100% 100%);
+    }
+    40% {
+      clip-path: inset(33% 33% 33% 33%);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  [transition-style="in:square:hesitate"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-hesitate both;
+  }
+
 @keyframes slidein {
     from {
       margin-left: 100%;
@@ -277,14 +364,17 @@ textarea:hover {
     }
     
   }
+
 @keyframes slideout {
     from {
-        margin-left: 0%;
+        margin-right: 0%;
+        transform: rotate(360deg);
         width:100%;
     }
 
     to {
-        margin-left: 100%;
+        margin-right: 100%;
+        transform: rotate(0deg);
         width: 300%;
     }
 }
@@ -329,6 +419,20 @@ textarea:hover {
       }
 
 @media screen and (max-width: 765px) {
+    .about .icon {
+        animation: circle-in-hesitate 2s;
+        animation-delay: 5s;
+    }
+    .about figcaption {
+        font-size: 14px;
+        padding: 20px;
+    }
+    .about article {
+        display: none;
+    }
+    .about article:hover {
+        display:block;
+    }
     .site-logo {
         position: sticky;
         border: 1.5px dashed rgb(68, 143, 209);
@@ -405,9 +509,18 @@ textarea:hover {
     textarea {
         max-width: 280px;
     }
+    .blocks {
+        display: flex;
+        flex-direction: column;
+    }
+    .block img{
+        animation: square-in-hesitate 5s;
+        margin-left: 10px;
+        width: min(95%, 580px)
+    }
+    
 }
 @media screen and (min-width: 1440px) {
-    
     .cards .card {
         width: min(50%, 600px);
     }
