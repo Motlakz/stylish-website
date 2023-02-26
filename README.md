@@ -1,4 +1,4 @@
-# Stylish Website
+# Animated Website
 
 My first attempt at an animated landing page.  
 
