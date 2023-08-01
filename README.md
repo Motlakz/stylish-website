@@ -5,13 +5,15 @@ My first attempt at an animated landing page.
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The objective](#the-objective)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+
+### Overview
 
 ### The objective
 
@@ -48,8 +50,8 @@ I will spend more time working on websites with interactive CSS animations, pair
 ### Kudos
 
 - Some credit is due to Anthony, Jonathan Meyer, Suzy Hazelwood, and Pixabay for the wonderful images you see across the site that made the color scheme work.
+
 ## Author
 
 - Website - [Motlakz](https://github.com/Motlakz/)
 - Twitter - [@MotlalepulaSel6](https://www.twitter.com/MotlalepulaSel6/)
-
