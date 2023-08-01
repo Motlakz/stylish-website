@@ -1,6 +1,6 @@
-# Stylish Website
+# Animated Website
 
-My first attempt at an animated landing page.  
+My first attempt at an animated website.  
 
 ## Table of contents
 
